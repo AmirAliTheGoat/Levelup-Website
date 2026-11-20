@@ -2,10 +2,26 @@
   "name": "levelup-farsi",
   "version": "1.0.0",
   "private": true,
-  "description": "Level Up | Farsi - static landing page (index.html, no build step)",
+  "type": "module",
+  "description": "Level Up | Farsi — Interactive speaker showcase & curated Persian books, seminars, and audiobooks dashboard.",
   "scripts": {
-    "dev": "npx --yes serve .",
-    "start": "npx --yes serve .",
-    "build": "echo \"Static site - nothing to build\""
+    "dev": "vite --port 3000 --host 0.0.0.0",
+    "start": "vite preview --port 3000 --host 0.0.0.0",
+    "build": "vite build",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "gsap": "^3.15.1",
+    "lucide-react": "^1.77.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
   }
 }

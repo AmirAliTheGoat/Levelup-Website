@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #080808;
+  --surface: #111110;
+  --surface-elevated: #171715;
+  --fg: #ecebe6;
+  --dim: #9a9890;
+  --accent: #FFD400;
+  --amber: #F59E0B;
+  --border: rgba(236, 235, 230, 0.12);
+  --border-strong: rgba(236, 235, 230, 0.24);
+  --f-fa: 'Vazirmatn', 'Tahoma', system-ui, sans-serif;
+  --f-fa-disp: 'Lalezar', 'Vazirmatn', system-ui, sans-serif;
+  --f-en: 'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
+  --f-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--f-fa);
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--f-fa);
+  min-height: 100svh;
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-disp {
+  font-family: var(--f-fa-disp);
+  font-weight: 400;
+}
+
+.font-en {
+  font-family: var(--f-en);
+  font-weight: 400;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.font-mono-ltr {
+  font-family: var(--f-mono);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.tabular-fa {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle static film-grain texture (compositor-friendly, zero animation thrash) */
+.film-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: radial-gradient(rgba(236, 235, 230, 0.85) 0.55px, transparent 0.55px);
+  background-size: 3px 3px;
+}
+
+/* Soft radial vignette mask for high-contrast speaker portraits */
+.portrait-vignette {
+  -webkit-mask-image: radial-gradient(ellipse 74% 82% at 50% 42%, #000 54%, transparent 100%);
+  mask-image: radial-gradient(ellipse 74% 82% at 50% 42%, #000 54%, transparent 100%);
+}
+
+/* Editorial halftone dot overlay for graphic posters */
+.halftone-overlay {
+  background-image: radial-gradient(circle, rgba(8, 8, 8, 0.8) 0 28%, transparent 33%);
+  background-size: 6px 6px;
+}
+
+/* Focus rings */
+:is(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Hide scrollbars on horizontal rosters while preserving native momentum scroll */
+.no-scrollbar {
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+button, a {
+  touch-action: manipulation;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+html.rm {
+  scroll-behavior: auto;
+}
+html.rm *, html.rm *::before, html.rm *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
